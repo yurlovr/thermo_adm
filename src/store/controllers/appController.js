@@ -17,7 +17,7 @@ export default function () {
             subscribe = true
             dispatch('app/setResult', {
               meta: payload.meta,
-              data: getter['app/getResult'].reverse().concat({...res, image: host + res.image}).reverse()
+              data: getter['app/getResult'].reverse().concat({...res, image: host + 'images/' + res.image}).reverse()
             })
           }).catch(e => {
             console.log(e)
