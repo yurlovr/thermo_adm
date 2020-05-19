@@ -128,7 +128,7 @@ function setItems (items) {
     const { image } = item
     return {
       ...item,
-      image: host + image
+      image: host +'images/' + image
     }
   }).reverse()
 }
