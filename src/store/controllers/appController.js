@@ -1,6 +1,7 @@
 import ApiData from '../../api/api'
+const host = 'https://testtempserv.herokuapp.com/api/'
 
-const api = new ApiData('https://testtempserv.herokuapp.com/api/') //'https://testtempserv.herokuapp.com/api/ http://localhost:3000/api/
+const api = new ApiData(host) //'https://testtempserv.herokuapp.com/api/ http://localhost:3000/api/
 
 export default function () {
   return store => {
@@ -16,7 +17,7 @@ export default function () {
             subscribe = true
             dispatch('app/setResult', {
               meta: payload.meta,
-              data: getter['app/getResult'].reverse().concat({...res, image: 'http://localhost:3000/api/images/' + res.image}).reverse()
+              data: getter['app/getResult'].reverse().concat({...res, image: host + res.image}).reverse()
             })
           }).catch(e => {
             console.log(e)
