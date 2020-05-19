@@ -96,14 +96,6 @@ export default function () {
                   }, 2000)
                 })
                 subscription(payload.data)
-                // api.call('subscribe', {}, payload.data)
-                // .then(res => {
-                //   subscribe = true
-                //   dispatch('app/setResult', {
-                //     meta: payload.meta,
-                //     data: getter['app/getResult'].reverse().concat({...res, image: 'http://localhost:3000/api/images/' + res.image}).reverse()
-                //   })
-                // }).catch(e => console.log(e))
               }
               break
               case 'app/CHANGE_RESULT':
@@ -124,14 +116,6 @@ export default function () {
                 if (subscribe) {
                   subscribe = false
                   subscription(payload.data)
-                  // api.call('subscribe', {}, payload.data)
-                  // .then(res => {
-                  //   subscribe = true
-                  //   dispatch('app/setResult', {
-                  //     meta: payload.meta,
-                  //     data: getter['app/getResult'].reverse().concat({...res, image: 'http://localhost:3000/api/images/' + res.image}).reverse()
-                  //   })
-                  // }).catch(e => console.log(e))
                 }
                 break
       }
@@ -144,7 +128,7 @@ function setItems (items) {
     const { image } = item
     return {
       ...item,
-      image: 'http://localhost:3000/api/images/' + image
+      image: host + image
     }
   }).reverse()
 }
